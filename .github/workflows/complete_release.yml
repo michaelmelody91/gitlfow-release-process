@@ -1,4 +1,4 @@
-name: Complete Release
+name: Complete Release 2
 env:
   RELEASE_NAME: ${{ github.event.release.tag_name }}
 on: [release]
