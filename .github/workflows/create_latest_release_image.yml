@@ -1,4 +1,4 @@
-name: Create Latest Develop Image
+name: Create Latest Release Image
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 on:
