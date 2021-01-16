@@ -2,12 +2,12 @@ name: CI
 on:
   workflow_dispatch:
     inputs:
-    release_name:
-      description: 'Release name'
-      required: true
+      release_name:
+        description: 'Release name'
+        required: true
 jobs:
   start_release:
     runs-on: ubuntu-latest
     steps:
       - name: Print Releae Title
-        run: echo "Release $INPUT_RELEASE_NAME"
+        run: echo "Release ${{ github.event.inputs.release_name }}"
