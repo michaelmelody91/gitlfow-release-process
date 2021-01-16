@@ -1,4 +1,6 @@
-name: CI
+name: Draft Release
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 on:
   workflow_dispatch:
     inputs:
@@ -12,7 +14,12 @@ jobs:
       - name: Print Releae Title
         run: echo "Release ${{ github.event.inputs.release_name }}"
       - uses: peterjgrainger/action-create-branch@v2.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           branch: "release/${{ github.event.inputs.release_name }}"
+      - name: Create Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.event.inputs.release_name }}
+          release_name: Release github.event.inputs.release_name
+          draft: true
+          prerelease: false 
