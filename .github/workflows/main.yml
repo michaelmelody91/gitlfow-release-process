@@ -11,3 +11,7 @@ jobs:
     steps:
       - name: Print Releae Title
         run: echo "Release ${{ github.event.inputs.release_name }}"
+      - name: Create Release Branch
+        uses: actions/checkout@v2
+        with:
+          ref: "release/${{ github.event.inputs.release_name }}"
