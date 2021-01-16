@@ -1,9 +1,7 @@
 name: CI
 env:
   RELEASE_NAME: ${{ github.event.release.tag_name }}
-on:
-  release:
-    types: [created]
+on: [release]
 jobs:
   start_release:
     runs-on: ubuntu-latest
