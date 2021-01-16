@@ -1,10 +1,13 @@
 name: CI
-env:
-  RELEASE_NAME: ${{ github.event.release.tag_name }}
-on: [release]
+on:
+  workflow_dispatch:
+    inputs:
+    release_name:
+      description: 'Release name'
+      required: true
 jobs:
   start_release:
     runs-on: ubuntu-latest
     steps:
       - name: Print Releae Title
-        run: echo "Release $RELEASE_NAME"
+        run: echo "Release $INPUT_RELEASE_NAME"
