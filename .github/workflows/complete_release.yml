@@ -1,0 +1,11 @@
+
+name: Finish Release
+on:
+  release:
+    types: [published]
+jobs:
+  complete_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Releae Title
+        run: echo "Release $RELEASE_NAME"
