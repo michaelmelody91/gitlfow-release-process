@@ -2,7 +2,9 @@
 name: Finish Release
 env:
   RELEASE_NAME: ${{ github.event.release.tag_name }}
-on: [release]
+on:
+  release:
+    types: [edited]
 jobs:
   complete_release:
     runs-on: ubuntu-latest
