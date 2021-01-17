@@ -23,6 +23,7 @@ jobs:
           release_name: "Release ${{github.event.inputs.release_name}}"
           draft: true
           prerelease: false 
+          commitish: "release/${{ github.event.inputs.release_name }}"
   create_image:
     needs: [start_release]
     runs-on: ubuntu-latest
