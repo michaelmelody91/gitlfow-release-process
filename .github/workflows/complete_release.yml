@@ -30,6 +30,8 @@ jobs:
             "ghcr.io/michaelmelody91/hello-world:${{ github.event.release.tag_name }}"
       - name: Check out Git repository
         uses: actions/checkout@v2
+        with: "release/${{ github.event.release.tag_name }}"
+          ref: my-branch
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
@@ -39,6 +41,6 @@ jobs:
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
           branch: "release/${{ github.event.release.tag_name }}"
-          delete-branch: true
+          delete-branch: false
           title: '${{ github.event.release.tag_name }} -> main'
           base: main
