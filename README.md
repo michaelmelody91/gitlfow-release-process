@@ -1,3 +1,3 @@
 # gitlfow-release-process
 
-Release: 1.0.2
+Release: 1.0.3
