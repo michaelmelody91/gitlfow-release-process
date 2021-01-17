@@ -31,16 +31,11 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v2
         with:
-          ref: "release/${{ github.event.release.tag_name }}"
+          ref: main
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.CR_PAT }}
-          commit-message: Complete Release
-          committer: GitHub <noreply@github.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          signoff: false
           branch: "release/${{ github.event.release.tag_name }}"
           delete-branch: false
           title: '${{ github.event.release.tag_name }} -> main'
-          base: main
