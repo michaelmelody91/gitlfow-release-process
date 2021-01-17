@@ -30,8 +30,8 @@ jobs:
             "ghcr.io/michaelmelody91/hello-world:${{ github.event.release.tag_name }}"
       - name: Check out Git repository
         uses: actions/checkout@v2
-        with: "release/${{ github.event.release.tag_name }}"
-          ref: my-branch
+        with:
+          ref: "release/${{ github.event.release.tag_name }}"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
